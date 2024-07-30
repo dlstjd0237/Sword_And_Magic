@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/09.UIToolkit/MainScreen.uss?fileID=7433441132597879392&amp;guid=5e68480926e28e24ba637c6428e9794d&amp;type=3#MainScreen" />
+    <ui:VisualElement name="container" picking-mode="Ignore" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="btn_bar" class="btn_bar">
+            <ui:Button text="회원가입" parse-escape-sequences="true" display-tooltip-when-elided="true" name="btn_register" class="blue-btn" />
+            <ui:Button text="로그인" parse-escape-sequences="true" display-tooltip-when-elided="true" name="btn_login" class="blue-btn" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="popup_panel" picking-mode="Ignore" class="popup-panel" />
+    <ui:VisualElement name="end_contain-box" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; background-color: rgb(0, 0, 0); align-items: center; justify-content: space-around; opacity: 0; visibility: hidden;">
+        <ui:Label tabindex="-1" text="You Die" parse-escape-sequences="true" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Assets/UAPT/97.UI_Module/Jalnan2TTF%20SDF.asset?fileID=11400000&amp;guid=957e7964f45465743a24a61bbc80dc62&amp;type=2#Jalnan2TTF SDF&quot;); font-size: 350px;" />
+        <ui:Button text="다시하기" parse-escape-sequences="true" display-tooltip-when-elided="true" name="retry-btn" class="retry-btn" />
+    </ui:VisualElement>
+</ui:UXML>

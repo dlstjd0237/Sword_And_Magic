@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="card" class="card on">
+        <ui:Label tabindex="-1" text="공격력 증가" parse-escape-sequences="true" display-tooltip-when-elided="true" name="card_name-label" class="card_name-label" />
+        <ui:VisualElement name="card_outline_contain-box" class="card_outline_contain-box">
+            <ui:VisualElement name="card_image_contain-box" class="card_image_contain-box" />
+        </ui:VisualElement>
+        <ui:Label tabindex="-1" text="공격력이 1 증가합니다." parse-escape-sequences="true" display-tooltip-when-elided="true" name="card_description-label" class="card_decription-label" />
+    </ui:VisualElement>
+</ui:UXML>

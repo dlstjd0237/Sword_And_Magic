@@ -1,0 +1,15 @@
+{% extends "layout.html"%}
+
+{%block content %}
+    <h1>Hello world</h1>
+    <div>
+        {% for row in rows %}
+            <div class="record-row">
+                <span class="id">{{row.id}}</span>
+                <span class="name">{{row.name}}</span>
+                <span class="record">{{row.record}}</span>
+                <span class="time">{{row.created}}</span>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

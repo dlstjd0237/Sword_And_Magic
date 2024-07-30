@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/90.UIToolkit/RegisterScreen.uss?fileID=7433441132597879392&amp;guid=be52d627a0f962b48917e190879f1e7c&amp;type=3#RegisterScreen" />
+    <Style src="project://database/Assets/90.UIToolkit/MainScreen.uss?fileID=7433441132597879392&amp;guid=5e68480926e28e24ba637c6428e9794d&amp;type=3#MainScreen" />
+    <ui:VisualElement name="Container" class="Container" style="width: 750px;">
+        <ui:VisualElement name="Content" style="flex-grow: 1; font-size: 29px;">
+            <ui:Label tabindex="-1" text="회원 가입" parse-escape-sequences="true" display-tooltip-when-elided="true" name="title-label" style="font-size: 30px; -unity-font-style: bold; -unity-text-align: middle-center;" />
+            <ui:TextField picking-mode="Ignore" label="Email" name="email-field" />
+            <ui:TextField picking-mode="Ignore" label="Password" name="password-field" password="true" />
+            <ui:TextField picking-mode="Ignore" label="Name" name="name-field" />
+        </ui:VisualElement>
+        <ui:VisualElement name="button-bar" class="button-bar">
+            <ui:Button text="가입" parse-escape-sequences="true" display-tooltip-when-elided="true" name="save-btn" class="blue-btn" />
+            <ui:Button text="취소" parse-escape-sequences="true" display-tooltip-when-elided="true" name="cancel-btn" class="blue-btn" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

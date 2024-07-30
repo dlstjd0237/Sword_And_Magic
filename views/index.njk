@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="popup">
+        <div class="inner">
+            {#action은 어디로 보낼것인가#}
+            <form action = "/login" method="post">
+                <div class="input-row">
+                    <label >이메일</label>
+                    <input type="email" name="email" id = "emailInput">
+                </div>
+                <div class="input-row">
+                    <label>비밀번호</label>
+                    <input type="password" name = "password" id="passInput">
+                </div>
+
+                <div class="button-row">
+                    <button type="button" class="btn">로그인</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        let emailInput = document.querySelector("#emailInput");
+        let passInput = document.querySelector("#passInput");
+
+        let btn = document.querySelector(".btn");
+        btn.addEventListener("click", () => {
+            let email = emailInput.value;
+            let password = passInput.value;
+            axios
+                .post("/login", {email, password})
+                .then(response => {
+                    alert("로그인 성공");
+                    localStorage.setItem("token", response.data.token);
+
+                    location.href = "/record";
+                })
+                .catch(err => { //400번응답이 오면
+                    alert(err.response.data.msg);
+                });
+        });
+    </script>
+
+{% endblock %}

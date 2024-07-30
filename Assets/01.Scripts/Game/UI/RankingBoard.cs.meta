@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3117e00db030cc64d844d1ba75f0da7a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rankItemPrefab: {instanceID: 0}
+  - rankDataItemChnner: {fileID: 11400000, guid: 89411816203b00a42b754eb9d4532ebb, type: 2}
+  - rankHolderTrm: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

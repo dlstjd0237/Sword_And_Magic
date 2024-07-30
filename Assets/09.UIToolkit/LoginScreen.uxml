@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/90.UIToolkit/RegisterScreen.uss?fileID=7433441132597879392&amp;guid=be52d627a0f962b48917e190879f1e7c&amp;type=3#RegisterScreen" />
+    <Style src="project://database/Assets/90.UIToolkit/MainScreen.uss?fileID=7433441132597879392&amp;guid=5e68480926e28e24ba637c6428e9794d&amp;type=3#MainScreen" />
+    <ui:VisualElement name="continer" class="Container" style="flex-grow: 1;">
+        <ui:Label tabindex="-1" text="로그인" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 38px; -unity-text-align: middle-center; -unity-font-style: bold;" />
+        <ui:VisualElement name="content" style="flex-grow: 1; font-size: 20px;">
+            <ui:TextField picking-mode="Ignore" label="Email" name="email-field" />
+            <ui:TextField picking-mode="Ignore" label="Password" name="password-field" />
+        </ui:VisualElement>
+        <ui:VisualElement name="button_bar" class="button-bar" style="height: 61px; flex-direction: row; justify-content: space-around;">
+            <ui:Button text="로그인" parse-escape-sequences="true" display-tooltip-when-elided="true" name="login-btn" class="blue-btn" />
+            <ui:Button text="닫기" parse-escape-sequences="true" display-tooltip-when-elided="true" name="close-btn" class="blue-btn" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

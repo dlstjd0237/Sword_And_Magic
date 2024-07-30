@@ -1,0 +1,66 @@
+.record-row {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.2);
+    margin-left: 0 30px, 5px 30px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.record-row>.name {
+    background-color: #4a8ab1;
+    color: rgb(255, 255, 255);
+    padding: 0px 12px;
+    border-radius: 5px;
+}
+
+.popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup > .inner{
+    background-color: white;
+    padding:20px;
+    border-radius: 8px;
+}
+
+.input-row{
+    display: flex;
+    width: 500px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.input-row > label{
+    flex-basis: 90px;
+    flex-shrink: 0;
+
+}
+.input-row>input{
+    flex-basis: 400px;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius:  5px;
+}
+
+.btn{
+    background-color: #26526e;
+    color:#fff;
+    border-radius: 5px;
+    padding: 8px 12px;
+    border : 1px solid #030bab;
+}
+.button-row{
+    display: flex;
+    justify-content: end;
+
+}
