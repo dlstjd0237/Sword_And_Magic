@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class RegisterScreen : IDisposable
@@ -78,6 +79,8 @@ public class RegisterScreen : IDisposable
         evt.name = Name;
 
         _main.registerChannel.RaiseEvent(evt);
+
+        SceneControlManager.FadeOut(() => SceneManager.LoadScene(1));
     }
 
  

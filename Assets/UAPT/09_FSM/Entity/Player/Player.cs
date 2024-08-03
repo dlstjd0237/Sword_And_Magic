@@ -1,16 +1,16 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 [RequireComponent(typeof(PlayerStateMachine))]
 public class Player : Entity
 {
+    [SerializeField] private string _endScreenName;
     [SerializeField] private Bullet _bullet;
     [SerializeField] private Transform _bulletSpawnTrm;
     private bool _isGameStart = false;
     public bool IsGameStaet => _isGameStart;
-    public float BulletDamage = 10;
     public InputRader Input;
     public PlayerStateMachine StateMachine { get; private set; }
     protected override void Awake()
@@ -35,16 +35,21 @@ public class Player : Entity
             }
         }
     }
-    private void OnEnable()
+
+    protected override void OnDisable()
     {
-        GameEventBus.Subscribe(GameEventBusType.Start, HandleStartEvent);
-        GameEventBus.Subscribe(GameEventBusType.Stop, HandleStopEvent);
-    }
-    private void OnDisable()
-    {
+        base.OnDisable();
         GameEventBus.UnSubscribe(GameEventBusType.Start, HandleStartEvent);
         GameEventBus.UnSubscribe(GameEventBusType.Stop, HandleStopEvent);
     }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        GameEventBus.Subscribe(GameEventBusType.Start, HandleStartEvent);
+        GameEventBus.Subscribe(GameEventBusType.Stop, HandleStopEvent);
+    }
+
     private void Start()
     {
         StateMachine.Initialize(PlayerStateEnum.Idle, this);
@@ -65,6 +70,7 @@ public class Player : Entity
     public void Dead()
     {
         GameEventBus.Publish(GameEventBusType.End);
+        SceneControlManager.FadeOut(() => SceneManager.LoadScene(_endScreenName));
     }
 
     private void Update()
@@ -76,7 +82,7 @@ public class Player : Entity
     public void AttackAnimationEvent()
     {
         var bullet = PoolManager.SpawnFromPool("Bullet", _bulletSpawnTrm.position).GetComponent<Bullet>();
-        bullet.Initialized(BulletDamage);
+        bullet.Initialized(Stat.attackDamage.GetValue());
     }
 
     public void AnimationFinishTrigger()

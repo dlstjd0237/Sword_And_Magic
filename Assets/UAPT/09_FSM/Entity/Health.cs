@@ -19,6 +19,11 @@ public class Health : MonoBehaviour
     }
 
     public float GetCurrentHealth() => _currentHealth;
+    public void SetCurrentHelath(int value)
+    {
+        _currentHealth = value;
+        _text.SetText(_currentHealth.ToString());
+    }
 
     public void ApplyeDamage(float damage)
     {

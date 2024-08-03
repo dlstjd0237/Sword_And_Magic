@@ -82,16 +82,6 @@ public class NetworkManager : MonoBehaviour
         PlayerPrefs.DeleteKey("Token");
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            GetRequest("test", (res) =>
-            {
-                Debug.Log(res.msg);
-            });
-        }
-    }
 
     private void SetRequestToken(UnityWebRequest req)
     {

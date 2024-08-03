@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using UAPT.UI;
 public class TitleUI : MonoBehaviour
 {
     [SerializeField] private Sprite _titmeIcon;
@@ -13,6 +14,8 @@ public class TitleUI : MonoBehaviour
     private Label _touchLabel;
     private void Awake()
     {
+
+        FixedScreen.FixedScreenSet();
         _doc = GetComponent<UIDocument>();
 
         _root = _doc.rootVisualElement;
@@ -41,13 +44,13 @@ public class TitleUI : MonoBehaviour
 
     }
 
-//#if UNITY_EDITOR
-//    private void OnValidate()
-//    {
-//        _doc = GetComponent<UIDocument>();
-//        var root = _doc.rootVisualElement;
-//        root.Q<VisualElement>("title_icon-box").style.backgroundImage = new StyleBackground(_titmeIcon);
-//    }
-//#endif
+    //#if UNITY_EDITOR
+    //    private void OnValidate()
+    //    {
+    //        _doc = GetComponent<UIDocument>();
+    //        var root = _doc.rootVisualElement;
+    //        root.Q<VisualElement>("title_icon-box").style.backgroundImage = new StyleBackground(_titmeIcon);
+    //    }
+    //#endif
 
 }

@@ -6,8 +6,14 @@ public class Bullet : MonoBehaviour
     public void Initialized(float AttackPower)
     {
         Power = AttackPower;
-        Destroy(gameObject, 5);
+        Invoke(nameof(SelfActive), 5);
     }
+
+    private void SelfActive()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))

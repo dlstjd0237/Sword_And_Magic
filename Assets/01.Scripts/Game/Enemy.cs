@@ -20,12 +20,12 @@ public class Enemy : MonoBehaviour
 
     private void HandleStopEvent()
     {
-        _isGameStart = true;
+        _isGameStart = false;
     }
 
     private void HandleStartEvent()
     {
-        _isGameStart = false;
+        _isGameStart = true;
 
     }
 

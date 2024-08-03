@@ -9,6 +9,7 @@ public class EnemySpawnManager : MonoSingleton<EnemySpawnManager>
     [SerializeField] private float _spawnTime = 7;
     private int SpawnEnemyCount = 0;
     private Coroutine _coroutine;
+    private bool _isGameStart;
 
     private void OnEnable()
     {
@@ -19,16 +20,14 @@ public class EnemySpawnManager : MonoSingleton<EnemySpawnManager>
 
     private void HandleStopEvent()
     {
-        if (_coroutine != null)
-        {
-            StopCoroutine(_coroutine);
-            _coroutine = null;
-        }
+        _isGameStart = false;
     }
 
     private void HandleStartEvent()
     {
-        _coroutine = StartCoroutine(nameof(EnemySpawnCoroutine));
+        if (_coroutine == null)
+            _coroutine = StartCoroutine("EnemySpawnCoroutine");
+        _isGameStart = true;
     }
 
     private IEnumerator EnemySpawnCoroutine()
@@ -38,9 +37,11 @@ public class EnemySpawnManager : MonoSingleton<EnemySpawnManager>
         while (true)
         {
             yield return Wait;
+            if (_isGameStart == false)
+                continue;
             var enemy = Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
             SpawnEnemyCount++;
-            float enemyHealth = ((SpawnEnemyCount+Random.Range(1,11)) + 30) * 2;
+            float enemyHealth = ((SpawnEnemyCount + Random.Range(1, 11)) + 30) * 2;
             enemy.Initialized(enemyHealth);
         }
     }

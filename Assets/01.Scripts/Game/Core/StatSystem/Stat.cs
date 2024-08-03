@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -8,6 +7,7 @@ public class Stat
 {
     [SerializeField] private int _baseValue;
 
+    public Action<int> ValueChangeEvent;
     public List<int> modifiers;
 
     public int GetValue()
@@ -24,15 +24,20 @@ public class Stat
     public void AddModifier(int value)
     {
         if (value != 0)
+        {
             modifiers.Add(value);
+            ValueChangeEvent?.Invoke(GetValue());
+        }
     }
 
     public void RemoveModifier(int value)
     {
         if (value != 0)
+        {
             modifiers.Remove(value);
+            ValueChangeEvent?.Invoke(GetValue());
+        }
     }
-
     public void SetDefaultValue(int value)
     {
         _baseValue = value;

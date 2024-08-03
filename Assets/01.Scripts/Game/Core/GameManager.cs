@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public SetDataEventCahnnelSO gameStartChnner, gameTimeChannel;
-    public NetworkEventChannelSO logChannel, clearLogChannel,rankChannel;
+    public NetworkEventChannelSO logChannel, clearLogChannel, rankChannel;
 
     public Player player;
     public Transform startTrm;
@@ -22,16 +22,24 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         GameEventBus.Subscribe(GameEventBusType.Start, HandleStartEvent);
+        GameEventBus.Subscribe(GameEventBusType.Stop, HandleStopEvent);
         GameEventBus.Subscribe(GameEventBusType.End, HandleEndEvent);
-        
+
     }
+
+
     private void OnDisable()
     {
         GameEventBus.UnSubscribe(GameEventBusType.Start, HandleStartEvent);
+        GameEventBus.UnSubscribe(GameEventBusType.Stop, HandleStopEvent);
         GameEventBus.UnSubscribe(GameEventBusType.End, HandleEndEvent);
 
     }
 
+    private void HandleStopEvent()
+    {
+        _isGameStart = false;
+    }
     private void HandleEndEvent()
     {
         HandleGameClear();
@@ -46,7 +54,7 @@ public class GameManager : MonoBehaviour
     {
         player.gameObject.SetActive(false);
     }
-    
+
     private void RequestRankData()
     {
         var evt = Events.VoidEvent;
