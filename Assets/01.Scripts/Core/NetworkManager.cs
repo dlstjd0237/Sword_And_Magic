@@ -62,6 +62,7 @@ public class NetworkManager : MonoBehaviour
 
     private void Start()
     {
+
         Token = PlayerPrefs.GetString("Token", "");
 
         if (Token != "")

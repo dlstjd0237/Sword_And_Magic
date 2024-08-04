@@ -46,18 +46,7 @@ public class CardChoiceUI : MonoBehaviour
             AddCard();
         }
     }
-
-    private void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            Debug.Log("??");
-            OpenCard();
-        }
-
-    }
-
+    
     private void AddCard()
     {
         var cardTree = _treeAsset.Instantiate().Q<VisualElement>();

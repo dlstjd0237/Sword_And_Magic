@@ -30,7 +30,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void ChangeState(PlayerStateEnum newState)
     {
-        CurrentState.Exit();
+        if (CurrentState != null)
+            CurrentState.Exit();
         CurrentState = stateDictionary[newState];
         CurrentState.Enter();
     }

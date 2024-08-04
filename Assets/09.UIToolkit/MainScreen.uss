@@ -27,6 +27,7 @@
     transition-duration: 0.3s;
     height: 100%;
     margin-top: 20px;
+    -unity-font-definition: url("project://database/Assets/UAPT/97.UI_Module/Jalnan2TTF%20SDF.asset?fileID=11400000&guid=957e7964f45465743a24a61bbc80dc62&type=2#Jalnan2TTF SDF");
 }
 
 .blue-btn:hover {
