@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        player.gameObject.SetActive(false);
     }
 
     private void RequestRankData()

@@ -16,7 +16,7 @@ public class Player : Entity
     protected override void Awake()
     {
         base.Awake();
-        StateMachine = new PlayerStateMachine();
+        StateMachine = GetComponent<PlayerStateMachine>();
 
         foreach (PlayerStateEnum stateEnum in Enum.GetValues(typeof(PlayerStateEnum)))
         {
@@ -34,6 +34,7 @@ public class Player : Entity
                 Debug.LogError(ex);
             }
         }
+        gameObject.SetActive(false);
     }
 
     protected override void OnDisable()
